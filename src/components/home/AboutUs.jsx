@@ -5,7 +5,7 @@ import horns from "../../assets/horns.png";
 const AboutUs = () => {
   return (
     <div className="md:flex justify-between w-full md:w-5/6 m-auto mt-20 mb-20 pl-4 pr-4 md:pl-0 md:pr-0">
-      <div className="mr-20 md:basis-1/2 lg:basis-2/5">
+      <div className="mr-0 md:mr-20 basis-full md:basis-1/2 lg:basis-2/5">
         <Image src={horns} alt="" className="w-full"/>
       </div>
       <div className="mt-6 md:mt-0 text-center md:text-left md:basis-1/2 lg:basis-3/5">
