@@ -4,6 +4,8 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
+import styles from '../../styles/styles'
+
 function Icon({ id, open }) {
   return (
     <svg
@@ -29,20 +31,23 @@ const FrequentQuestions = () => {
   };
 
   return (
-    <div id="faq" className="md:flex justify-between md:w-5/6 m-auto mt-10 md:mt-20 mb-20 pl-4 pr-4 md:pl-0 md:pr-0">
+    <div
+      id="faq"
+      className={`${styles.innerWidth} md:flex justify-between mt-10 md:mt-20 mb-20 `}
+    >
       <div className="basis-2/5 text-center md:text-left">
-        <h4 className="text-[#1F2937] font-semibold tracking-tight text-2xl md:text-3xl lg:text-4xl leading-[30px] lg:leading-[44px]">
+        <h4 className="text-dark font-semibold tracking-tight text-2xl md:text-3xl lg:text-4xl leading-[30px] lg:leading-[44px]">
           Frequently Asked <br /> Questions
         </h4>
-        <p className="text-[#4B5563] text-sm lg:text-base leading-6 tracking-tight mt-1">
+        <p className={`${styles.paragraph} mt-1 `}>
           We’re here to help you
         </p>
 
         <div className="mt-6 md:mt-10">
-          <p className="text-[#4B5563] text-sm lg:text-base leading-6 tracking-tight mt-1">
+          <p className={`${styles.paragraph} mt-1 `}>
             Still can’t find what you need?{" "}
           </p>
-          <button className="border-[1px] border-solid border-[#4874FF] text-[#4874FF] text-xs md:text-base tracking-tight font-semibold mt-2 py-2 px-3 rounded-md mb-3 md:mb-0">
+          <button className="border-[1px] border-solid border-primary text-primary text-xs md:text-base tracking-tight font-semibold mt-2 py-2 px-3 rounded-md mb-3 md:mb-0">
             Learn More
           </button>
         </div>
@@ -51,13 +56,13 @@ const FrequentQuestions = () => {
       <div className="basis-3/5">
         <Accordion open={open === 1} className="accordion-border">
           <AccordionHeader
-            className="text-[#4874FF] p-0 text-left lg:text-center text-sm md:text-base"
+            className={styles.accordionHeader}
             onClick={() => handleOpen(1)}
           >
             What are the advantages of horn antennas for WISPs?
           </AccordionHeader>
           {open === 1 && (
-            <AccordionBody className="text-[#4B5563] text-sm md:text-base leading-6 tracking-tight">
+            <AccordionBody className={styles.accordionText}>
               Horn antennas offer several advantages for Wireless Internet
               Service Providers (WISPs) when used in their networks. Some of the
               key benefits include: <br /> <br /> Wide bandwidth: Horn antennas
@@ -101,67 +106,67 @@ const FrequentQuestions = () => {
         <Accordion open={open === 2} className="accordion-border">
           <AccordionHeader
             onClick={() => handleOpen(2)}
-            className="text-[#4874FF] p-0 text-left lg:text-center text-sm md:text-base"
+            className={styles.accordionHeader}
           >
             What is the smallest beamwidth of a 5 GHz horn antenna?
           </AccordionHeader>
           {open === 2 && (
-          <AccordionBody className="text-[#4B5563] text-sm md:text-base leading-6 tracking-tight">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam
-            molestias amet ipsam alias quo adipisci mollitia reprehenderit
-            labore sapiente. Iste rem architecto voluptatem necessitatibus nam
-            natus temporibus, voluptatum modi!
-          </AccordionBody>
+            <AccordionBody className={styles.accordionText}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              magnam molestias amet ipsam alias quo adipisci mollitia
+              reprehenderit labore sapiente. Iste rem architecto voluptatem
+              necessitatibus nam natus temporibus, voluptatum modi!
+            </AccordionBody>
           )}
         </Accordion>
         <Accordion open={open === 3} className="accordion-border">
           <AccordionHeader
             onClick={() => handleOpen(3)}
-            className="text-[#4874FF] p-0 text-left lg:text-center text-sm md:text-base"
+            className={styles.accordionHeader}
           >
             What is receive sensitivity in a radio antenna system?
           </AccordionHeader>
           {open === 3 && (
-          <AccordionBody className="text-[#4B5563] text-sm md:text-base leading-6 tracking-tight">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam
-            molestias amet ipsam alias quo adipisci mollitia reprehenderit
-            labore sapiente. Iste rem architecto voluptatem necessitatibus nam
-            natus temporibus, voluptatum modi!
-          </AccordionBody>
+            <AccordionBody className={styles.accordionText}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              magnam molestias amet ipsam alias quo adipisci mollitia
+              reprehenderit labore sapiente. Iste rem architecto voluptatem
+              necessitatibus nam natus temporibus, voluptatum modi!
+            </AccordionBody>
           )}
         </Accordion>
 
         <Accordion open={open === 4} className="accordion-border">
           <AccordionHeader
             onClick={() => handleOpen(4)}
-            className="text-[#4874FF] p-0 text-left lg:text-center text-sm md:text-base"
+            className={styles.accordionHeader}
           >
             What factors impact receive sensitivity in a radio antenna system?
           </AccordionHeader>
           {open === 4 && (
-          <AccordionBody className="text-[#4B5563] text-sm md:text-base leading-6 tracking-tight">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam
-            molestias amet ipsam alias quo adipisci mollitia reprehenderit
-            labore sapiente. Iste rem architecto voluptatem necessitatibus nam
-            natus temporibus, voluptatum modi!
-          </AccordionBody>
+            <AccordionBody className={styles.accordionText}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              magnam molestias amet ipsam alias quo adipisci mollitia
+              reprehenderit labore sapiente. Iste rem architecto voluptatem
+              necessitatibus nam natus temporibus, voluptatum modi!
+            </AccordionBody>
           )}
         </Accordion>
 
         <Accordion open={open === 5} className="accordion-border">
           <AccordionHeader
             onClick={() => handleOpen(5)}
-            className="text-[#4874FF] p-0 text-left lg:text-center text-sm md:text-base"
+            className={styles.accordionHeader}
           >
             How does channel width affect receive sensitivity?
           </AccordionHeader>
           {open === 5 && (
-          <AccordionBody className="text-[#4B5563] text-sm md:text-base leading-6 tracking-tight">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam
-            molestias amet ipsam alias quo adipisci mollitia reprehenderit
-            labore sapiente. Iste rem architecto voluptatem necessitatibus nam
-            natus temporibus, voluptatum modi!
-          </AccordionBody>
+            <AccordionBody className={styles.accordionText}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              magnam molestias amet ipsam alias quo adipisci mollitia
+              reprehenderit labore sapiente. Iste rem architecto voluptatem
+              necessitatibus nam natus temporibus, voluptatum modi!
+            </AccordionBody>
           )}
         </Accordion>
       </div>

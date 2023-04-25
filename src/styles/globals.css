@@ -9,50 +9,77 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+.container-margin {
+  @apply m-auto;
+}
+.footer-border {
+  border-bottom: 0.5px solid #b6b6b6;
+  padding-bottom: 50px;
+}
 .hero-bg {
   position: relative;
 }
 .blur-bg {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
-.blur-bckrnd{
+.blur-bckrnd {
   background: #f4f7ff;
   opacity: 0.8;
   backdrop-filter: blur(106.5px);
+  padding: 10px;
 }
-.empowering-bg{
-  background: url('../assets/performance-bg.png');
+.empowering-bg {
+  background: url("../assets/performance-bg.png");
 }
-.footer-border{
-  border-bottom: 0.5px solid #B6B6B6;;
-  padding-bottom: 50px;
-}
-.accordion-border{
+.accordion-border {
   border-bottom: 1px solid #dadada;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.container-margin{
-  margin:auto;
-}
-.position{
+.position {
   position: relative;
   z-index: 200;
 }
+.product-img {
+  width: 100%;
+  border: 1px solid #d1d5db;
+}
+.product-img img {
+  width: 60%;
+  margin: auto;
+  padding: 10px;
+}
+.slick-dots {
+  bottom: 2px !important;
+}
+.slick-dots li {
+  margin: 0 !important;
+}
+.slick-dots li button::before {
+  font-size: 10px !important;
+}
+.slick-dots li.slick-active button::before {
+  color: #4874ff !important;
+  opacity: 1 !important;
+}
+
 @media screen and (max-width: 1024px) {
-  .container-margin{
+  .container-margin {
     margin-left: 16px !important;
     margin-right: 16px !important;
   }
 }
 @media screen and (max-width: 768px) {
-  .accordion-border{
+  .accordion-border {
     padding-top: 10px;
     padding-top: 10px;
   }
-  .product-img{
-    width: 100%;
+  .slick-dots li button::before {
+    font-size: 8px !important;
+  }
+  .slick-dots {
+    bottom: 0px !important;
   }
 }
