@@ -42,7 +42,7 @@ const Navbar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="tracking-tight ml-6 lg:ml-12 flex items-center">
-              <a href="/products">Products</a>
+              <Link href="/products">Products</Link>
               <MdOutlineKeyboardArrowDown
                 className={`${
                   logo === logo1 ? "text-[#F4F7FF]" : "text-dark"
