@@ -1,18 +1,19 @@
 const styles = {
-    innerWidth: 'w-full md:w-5/6 m-auto pl-4 pr-4 md:pl-0 md:pr-0',
-  
-    heading: 'text-dark font-semibold tracking-tight text-2xl md:text-3xl lg:text-4xl leading-[36px] md:leading-[44px]',
-    subHeading: 'text-primary tracking-tight uppercase text-xs md:text-sm lg:text-base font-medium',
-    subHeading2: 'text-dark w-full text-sm lg:text-base font-semibold blur-bckrnd',
-    paragraph: 'text-secondary text-sm lg:text-base leading-6 tracking-tight',
-    button: 'bg-primary text-[10px] py-2 md:py-3 px-3 md:px-4 text-white rounded-md block',
+    width: 'md:w-[85%] m-auto',
 
-    // Faq-Section
-    accordionHeader: 'text-primary p-0 text-left lg:text-center text-sm md:text-base',
-    accordionText: 'text-secondary text-sm md:text-base leading-6 tracking-tight',
-    
-    //Slider
-    sliderImage: 'w-[450px] h-[400px] m-auto'
+    heading: 'text-dark text-2xl md:text-3xl leading-8 md:leading-10 font-bold mb-5',
+    subHeading: 'text-dark text-2xl leading-10 font-bold mb-5',
+    subHeading2: 'text-dark text-xl md:text-2xl leading-10 font-semibold mb-5',
+    paragraph: 'text-secondary leading-6 text-xs md:text-sm',
+
+    padding: 'px-6 md:px-0',
+    liItems: 'flex items-center mb-4 text-xs md:text-sm text-[#545370] font-medium',
+
+    filterTab: 'bg-[#F1F5F9] px-6 py-3 rounded-lg text-[#252B61] text-sm md:text-base capitalize',
+    viewLink: 'text-[#252B61] font-medium text-xs flex gap-3 items-center',
+
+    label: "text-[#333333] font-semibold text-xs md:text-sm block mb-1",
+    inputDiv: "flex items-center gap-1 border-[1px] border-solid border-[#E5EBF0] p-3 text-[#748397] rounded-lg text-xs md:text-sm bg-white"
   };
   
   export default styles;

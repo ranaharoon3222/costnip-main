@@ -1,6 +1,5 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Home from '../pages/Home'
+import Navbar from '@/components/Navbar'
+import Home from './home'
 
 export default function Index() {
   return (
