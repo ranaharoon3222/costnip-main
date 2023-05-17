@@ -20,11 +20,11 @@ const ResourcesAndTools = () => {
       </h5>
       <ul className='text-[#81B4B5] flex flex-col gap-2 text-sm'>
         <li>
-          <Link href='/all'> All </Link>
+          <Link href='/resources/all'> All </Link>
         </li>
         {data.data.map((item) => {
           return (
-            <li>
+            <li key={item.id}>
               <Link href={`/resources/${slugify(item.attributes.name, '-')}`}>
                 {item.attributes.name}
               </Link>

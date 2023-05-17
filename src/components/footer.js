@@ -140,7 +140,7 @@ const Footer = () => {
                   >
                     <Image
                       className=''
-                      src='/costniplogo.png'
+                      src={Logo}
                       alt='Picture of the author'
                       width={150}
                       height={150}
