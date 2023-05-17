@@ -56,7 +56,6 @@ const PaginationButtons = ({ meta, path }) => {
       className='flex justify-center md:justify-end'
     >
       <ReactPaginate
-        forcePage={current - 1}
         breakLabel={<span className='mr-4'>...</span>}
         nextLabel={
           <span className='flex items-center justify-center w-10 h-10 rounded-full bg-lightGray'>
