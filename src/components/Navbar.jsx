@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import logo from '../assets/logo.png';
+import logo from '@/assets/logo.png';
 import Link from 'next/link';
 import styles from '@/styles/styles';
 import Button from './Button';
