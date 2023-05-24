@@ -10,11 +10,11 @@ const Footer = () => {
       name: 'Tools & info',
       menu: [
         {
-          link: '/pricecare',
+          link: '/result',
           text: 'Pricecare Search',
         },
         {
-          link: '/bill-upload',
+          link: '/bill',
           text: 'Bill Upload',
         },
       ],
@@ -24,11 +24,11 @@ const Footer = () => {
       name: 'Discover',
       menu: [
         {
-          link: '/spotlight',
+          link: '/health',
           text: 'Health Spotlight',
         },
         {
-          link: '/resource-library',
+          link: '/resources',
           text: 'Resource Library',
         },
       ],

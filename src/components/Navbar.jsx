@@ -43,13 +43,15 @@ const Navbar = () => {
       <div className={`${styles.width} ${styles.padding} py-5 relative z-10`}>
         <div className='flex items-center justify-between'>
           <div>
+            <Link href='/'>
             <Image src={Logo} alt='' className='w-[100px] md:w-[150px]' />
+            </Link>
           </div>
 
           <div className='flex items-center gap-5 md:gap-14'>
             <ul className='hidden p-0 md:flex gap-14'>
               <li className='border-b-2 border-solid border-primary'>
-                <Link href='/' className='text-sm font-semibold'>
+                <Link href='/result' className='text-sm font-semibold'>
                   Pricecare Search
                 </Link>
               </li>
