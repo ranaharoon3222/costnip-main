@@ -9,6 +9,8 @@ import { useMedia } from '@/helpers/useMedia';
 import Link from 'next/link';
 
 const PaymentAssistance = ({ slug, data, meta }) => {
+  const { getUrl } = useMedia();
+
   return (
     <div
       className={`md:w-[85%] m-auto md:py-16 md:mb-16 md:border-b-[1px] border-solid border-[#EBEBEB] bg-[#F8FAFB] md:bg-transparent ${styles.padding}`}
@@ -60,7 +62,7 @@ const PaymentAssistance = ({ slug, data, meta }) => {
                 <div className='md:flex items-center gap-10 border-[1px] border-solid border-[#EBEBEB] rounded-xl py-4 px-6 bg-white'>
                   <div>
                     <Image
-                      src={useMedia(content.attributes.photoUrl)}
+                      src={getUrl(content.attributes.photoUrl)}
                       alt=''
                       className='w-[100px] md:w-[250px]'
                       width={250}
