@@ -6,7 +6,7 @@ import slugify from 'slugify';
 import Loading from '@/components/loding';
 import { useFetcher } from '@/helpers/fetch';
 
-const paymentAssistance = () => {
+const PaymentAssistances = () => {
   const router = useRouter();
 
   const page = router.query['pagination[page]'] || 1;
@@ -42,4 +42,4 @@ const paymentAssistance = () => {
   );
 };
 
-export default paymentAssistance;
+export default PaymentAssistances;
