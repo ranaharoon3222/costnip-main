@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import logo from '@/assets/logo.png';
+import Logo from '@/assets/logo.png';
 import Link from 'next/link';
 import styles from '@/styles/styles';
 import Button from './Button';
@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className={`${styles.width} ${styles.padding} py-5 relative z-10`}>
         <div className='flex items-center justify-between'>
           <div>
-            <Image src={logo} alt='' className='w-[100px] md:w-[150px]' />
+            <Image src={Logo} alt='' className='w-[100px] md:w-[150px]' />
           </div>
 
           <div className='flex items-center gap-5 md:gap-14'>
@@ -102,7 +102,7 @@ const Navbar = () => {
             <div>
               <div className='flex items-center justify-between w-full mb-5'>
                 <Link href='/'>
-                  <Image src={logo} width='87' height='35' alt='/' />
+                  <Image src={Logo} width='87' height='35' alt='/' />
                 </Link>
                 <div
                   onClick={handleNav}
