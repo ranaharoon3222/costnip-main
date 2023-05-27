@@ -14,6 +14,11 @@ const Banner = () => {
 
   const [inputData, setInputData] = useState('');
   const { latitude, longitude } = Location();
+  const [show, setShow] = useState(false)
+
+
+
+
   ///////////////////////GETZIPCODE////////////////////////////
   const [zipCode, setZipCode] = useState(null);
 
@@ -47,12 +52,19 @@ const Banner = () => {
     }
   };
 
-  console.log(data);
+  // console.log(data);
 
   const handleChange = (e) => {
     setInputData(e.target.value);
   };
-  console.log(inputData);
+  // console.log(inputData);
+
+
+
+const handleshow = ()=>{
+  setShow(false)
+}
+
 
 
 
@@ -84,6 +96,7 @@ const Banner = () => {
             type='text'
             value={inputData}
             onChange={handleChange}
+            onClick={handleshow}
             placeholder='Enter Symptoms, services or code'
             className='w-full text-sm md:text-base px-10 py-3 md:py-4 mb-3 md:mb-0 border-radius1 text-[#616161] border-r-2 border-solid border-[#ececec]'
           />
@@ -108,14 +121,12 @@ const Banner = () => {
             const handleGetData = (data) => {
               if (data != 0) {
                 setInputData(data);
-
-                // console.log('heeeeeee')
+                setShow(true)
               }
 
-              // console.log(data)
             }
             return (
-              <div key={ind}>
+              <div key={ind} style={{display: show === true && 'none'}}>
                 <li
                   className='px-4 py-2 border-b-2 cursor-pointer '
                   onClick={() => handleGetData(ele.service_code)}

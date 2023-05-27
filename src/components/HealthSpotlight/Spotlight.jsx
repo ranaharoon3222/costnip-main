@@ -68,6 +68,7 @@ const Spotlight = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
