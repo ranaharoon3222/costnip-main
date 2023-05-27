@@ -1,14 +1,14 @@
-import React from "react";
-import FilterType from "./FilterType";
-import Featured from "./Featured";
+import React from 'react';
+import FilterType from './FilterType';
+import Featured from './Featured';
 
-const FilterResults = () => {
+const FilterResults = ({ resources }) => {
   return (
     <div>
-      <div className="hidden md:block">
-        <FilterType type="Featured" />
+      <div className='hidden md:block'>
+        <FilterType type='Featured' />
       </div>
-      <Featured />
+      <Featured resources={resources} />
     </div>
   );
 };
