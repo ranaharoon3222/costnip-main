@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export async function getZipCode(latitude, longitude) {
-  const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY'; // Replace with your own API key
+  const apiKey =  AIzaSyDv0LW8rdzKeKPjPWedHX5RJXV7rz1Ikic; // Replace with your own API key
 
   try {
     const response = await axios.get(

@@ -75,7 +75,7 @@ const handleshow = ()=>{
 
 
 {/* /////////////////////////////// */}
-{zipCode ? <p>Users ZIP code: {zipCode}</p> : <p>Loading ZIP code...</p>}
+{zipCode ? <p className="text-yellow-300">Users ZIP code pr ha : {zipCode}</p> : <p>Loading ZIP code...</p>}
       {/* /////////////////////////////// */}
 
 
