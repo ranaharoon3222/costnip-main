@@ -34,7 +34,7 @@ const Index = () => {
         </div>
       </div>
       {/* <Head /> */}
-      <div className='w-full px-4 py-16 countain'>
+      <div className='w-full max-w-screen-lg mx-[auto] px-4 py-16 countain'>
         <div className='w-full p-2 mx-auto divide-y rounded shadow-md divide-slate-200 shadow-slate-200 '>
           {data.data.map((item) => {
             return (
