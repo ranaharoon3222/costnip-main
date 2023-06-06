@@ -10,7 +10,7 @@ const PaymentAssistances = () => {
   const router = useRouter();
 
   const page = router.query['pagination[page]'] || 1;
-  const pageSize = router.query['pagination[pageSize]'] || 2;
+  const pageSize = router.query['pagination[pageSize]'] || 30;
 
   const { data, isLoading, error } = useFetcher(
     `/api/resources?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
