@@ -21,7 +21,7 @@ const Index = () => {
     setResources(data?.data);
   }, [data]);
 
-  if (isLoading || sloading) return <Loading />;
+  if (isLoading || sloading  ) return <Loading />;
   if (error || serror) return <h1>Error</h1>;
 
   const base = spotLightHead?.data?.attributes;
