@@ -1,4 +1,18 @@
 const About = () => {
+    const data = [
+        {
+            name:'vision1'
+        },
+        {
+            name:'vision2'
+        },
+        {
+            name:'vision3'
+        },
+        {
+            name:'vision4'
+        }
+    ]
   return (
     <>
       <div className="bg-blue-950 grid grid-cols-1 md:grid-cols-2 w-full max-w-screen-lg mx-[auto] text-white rounded-2xl py-12 mb-12 shadow-xl">
@@ -24,13 +38,23 @@ const About = () => {
 
       {/* /////CARD///////////////////////////////////////// */}
 
-<div className="w-full max-w-screen-xl mx-[auto] grid grid-cols-1 md:grid-cols-4  mb-8">
-
-    <div className="text-center bg-[#F8F8F8] p-6 rounded-3xl shadow-lg">
+<div className="w-full max-w-screen-xl mx-[auto] grid grid-cols-1 md:grid-cols-4 gap-x-8  mb-8">
+    {
+        data.map((item, ind)=>{
+           
+            return(
+                <div key={ind}>
+                <div className="text-center bg-[#F8F8F8] p-6 rounded-3xl shadow-lg ">
         <img className="mx-[auto] w-[60px]" src="eye.png" alt="aye" />
-        <h2 className="font-semibold text-blue-950 text-xl pb-2">Vision</h2>
+        <h2 className="font-semibold text-blue-950 text-xl pb-2">{item.name}</h2>
         <p className="text-sm">We are 100% committed to making healthcare more accessible to all, regardless of status.</p>
     </div>
+                </div>
+            )
+        })
+    }
+
+    
     
 </div>
 
