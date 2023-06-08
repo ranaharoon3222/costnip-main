@@ -9,7 +9,7 @@ import { useMedia } from "@/helpers/useMedia";
 
 const RecentlyPublished = () => {
   const { data, isLoading, error } = useFetcher("/api/blogs?populate=*");
-
+     const { getUrl } = useMedia();
   if (isLoading)
     return (
       <h1>
@@ -38,7 +38,7 @@ const RecentlyPublished = () => {
         {/* /////////////////////////////////////////// */}
 
         {data?.data?.map((item, ind) => {
-          const { getUrl } = useMedia();
+     
           return (
             <div
               key={ind}
