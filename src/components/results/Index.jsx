@@ -7,6 +7,7 @@ import Sponsored from "./Sponsored";
 import Partners from "./Partners";
 import RelatedTags from "./RelatedTags";
 
+
 const Index = () => {
   return (
     <div

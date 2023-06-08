@@ -13,6 +13,7 @@ import {
 import { RxCross2 } from "react-icons/rx";
 import { RiStarSLine } from "react-icons/ri";
 import { FaFilter } from "react-icons/fa";
+import { useStoreState } from "easy-peasy";
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -58,6 +59,7 @@ function SampleNextArrow(props) {
 
 const Results = () => {
   const [showFilter, setShowFilter] = useState(false);
+  const resultData = useStoreState(state => state.results)
   const settings = {
     infinite: true,
     speed: 500,
@@ -145,6 +147,8 @@ const Results = () => {
       userPrice: "User Reported Cash Price",
     },
   ];
+
+  // console.log('resultData', resultData);
 
   return (
     <div>
@@ -379,14 +383,14 @@ const Results = () => {
 
       <div className=" font-bold text-black text-5xl result-slider font-['Inter]">
         <Slider {...settings} className="">
-          {slideContent.map((content) => (
+          {resultData?.map((content) => (
             <div
-              key={content.id}
+              key={content.index}
               className="slide-div justify-between p-3 text-[11px] font-['Inter'] border-[1px] border-solid border-[#DCDCDC] rounded-lg"
             >
               <div>
                 <div>
-                  <Image src={content.img} alt="" className="w-[50px] mb-4" />
+                  <img src='/hospital.png' alt="" className="w-[50px] mb-4" />
                 </div>
                 <div className="flex items-center gap-3 mb-2">
                   <h6 className="text-[#1F1548] uppercase font-semibold">
@@ -396,9 +400,9 @@ const Results = () => {
                     {content.location}
                   </span>
                 </div>
-                <h6 className="text-[#696284] mb-1 mt-4">{content.address}</h6>
+                <h6 className="text-[#696284] mb-1 mt-4">{content.hospital_name}</h6>
                 <span className="text-[#1F1548] opacity-50 font-normal w-3/5 block leading-4">
-                  {content.road}
+                  {content.hospital_address}
                 </span>
               </div>
 
@@ -406,16 +410,16 @@ const Results = () => {
                 <div className="mb-4">
                   <h4 className="text-[#231D3C] text-lg md:text-2xl font-medium mb-[-6px]">
                     <span className="text-[#959595] text-[10px]">$</span>
-                    {content.price1}
+                    {content.service_price}
                   </h4>
                   <span className="text-[#3A3A3A] opacity-70 text-[10px] font-normal">
-                    {content.hospitalPrice}
+                    
                   </span>
                 </div>
                 <div>
                   <h4 className="text-[#231D3C] text-lg md:text-2xl font-medium mb-[-8px]">
                     <span className="text-[#959595] text-[8px]">$</span>
-                    {content.price2}
+                    40
                   </h4>
                   <span className="text-[#3A3A3A] opacity-70 text-[10px] font-normal">
                     {content.userPrice}

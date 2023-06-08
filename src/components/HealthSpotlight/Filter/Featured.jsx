@@ -128,7 +128,7 @@ const Featured = ({ resources }) => {
                 <img
                   src={getUrl(featured.attributes.thumbnail)}
                   alt=''
-                  className='rounded-lg'
+                  className='rounded-lg max-h-[300px]'
                 />
                 <div className='absolute top-[15px] right-[10px] bg-primary text-[10px] py-2 px-4 text-white font-semibold rounded-md'>
                   <span>
