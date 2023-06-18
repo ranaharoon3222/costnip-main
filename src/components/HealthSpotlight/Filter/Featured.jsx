@@ -65,59 +65,65 @@ const Featured = ({ resources }) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
-  const featured = [
-    {
-      img: featured1,
-      heading: 'The Benefits of Regular Exercise for Your Mental Health',
-      descp:
-        'Use our search and filtering system to find medical, dental, and vision...',
-      type: 'Guest Blog',
-      writtenBy: 'Written by Care Rosenbloom',
-      date: 'April 16, 2023',
-    },
-    {
-      img: featured2,
-      heading: 'Studies have shown that exercise can reduce symptoms',
-      descp:
-        'Use our search and filtering system to find medical, dental, and vision...',
-      type: 'Insight',
-      writtenBy: 'Written by Care Rosenbloom',
-      date: 'April 16, 2023',
-    },
-    {
-      img: featured3,
-      heading: 'Incorporating physical activity into your daily routine',
-      descp: 'Incorporating physical activity into your daily routine',
-      type: 'News',
-      writtenBy: 'Written by Care Rosenbloom',
-      date: 'April 16, 2023',
-    },
-    {
-      img: featured1,
-      heading: 'The Benefits of Regular Exercise for Your Mental Health',
-      descp: 'The Benefits of Regular Exercise for Your Mental Health',
-      type: 'Guest Blog',
-      writtenBy: 'Written by Care Rosenbloom',
-      date: 'April 16, 2023',
-    },
-    {
-      img: featured2,
-      heading: 'Studies have shown that exercise can reduce symptoms',
-      descp:
-        'Use our search and filtering system to find medical, dental, and vision...',
-      type: 'Insight',
-      writtenBy: 'Written by Care Rosenbloom',
-      date: 'April 16, 2023',
-    },
-    {
-      img: featured3,
-      heading: 'Incorporating physical activity into your daily routine',
-      descp: 'Incorporating physical activity into your daily routine',
-      type: 'News',
-      writtenBy: 'Written by Care Rosenbloom',
-      date: 'April 16, 2023',
-    },
-  ];
+  // const featured = [
+  //   {
+  //     img: featured1,
+  //     heading: 'The Benefits of Regular Exercise for Your Mental Health',
+  //     descp:
+  //       'Use our search and filtering system to find medical, dental, and vision...',
+  //     type: 'Guest Blog',
+  //     writtenBy: 'Written by Care Rosenbloom',
+  //     date: 'April 16, 2023',
+  //   },
+  //   {
+  //     img: featured2,
+  //     heading: 'Studies have shown that exercise can reduce symptoms',
+  //     descp:
+  //       'Use our search and filtering system to find medical, dental, and vision...',
+  //     type: 'Insight',
+  //     writtenBy: 'Written by Care Rosenbloom',
+  //     date: 'April 16, 2023',
+  //   },
+  //   {
+  //     img: featured3,
+  //     heading: 'Incorporating physical activity into your daily routine',
+  //     descp: 'Incorporating physical activity into your daily routine',
+  //     type: 'News',
+  //     writtenBy: 'Written by Care Rosenbloom',
+  //     date: 'April 16, 2023',
+  //   },
+  //   {
+  //     img: featured1,
+  //     heading: 'The Benefits of Regular Exercise for Your Mental Health',
+  //     descp: 'The Benefits of Regular Exercise for Your Mental Health',
+  //     type: 'Guest Blog',
+  //     writtenBy: 'Written by Care Rosenbloom',
+  //     date: 'April 16, 2023',
+  //   },
+  //   {
+  //     img: featured2,
+  //     heading: 'Studies have shown that exercise can reduce symptoms',
+  //     descp:
+  //       'Use our search and filtering system to find medical, dental, and vision...',
+  //     type: 'Insight',
+  //     writtenBy: 'Written by Care Rosenbloom',
+  //     date: 'April 16, 2023',
+  //   },
+  //   {
+  //     img: featured3,
+  //     heading: 'Incorporating physical activity into your daily routine',
+  //     descp: 'Incorporating physical activity into your daily routine',
+  //     type: 'News',
+  //     writtenBy: 'Written by Care Rosenbloom',
+  //     date: 'April 16, 2023',
+  //   },
+  // ];
+
+  const umr_handleBlog = (id)=>{
+    console.log(id)
+  }
+
+
   return (
     <div>
       <div className='hidden mt-8 md:block filter-div'>
@@ -136,7 +142,7 @@ const Featured = ({ resources }) => {
                   </span>
                 </div>
               </div>
-              <h5 className='font-bold text-[#2C2524] leading-7 text-base mt-4 mb-2'>
+              <h5 className='font-bold text-[#2C2524] leading-7 text-base mt-4 mb-2 min-h-[57px]'>
                 {featured.attributes.title}
               </h5>
               <p
@@ -153,11 +159,11 @@ const Featured = ({ resources }) => {
               </span>
 
               <div className='flex justify-between pt-2 border-t-[1px] border-solid border-[#E0DBDB]'>
-                <Link
-                  href='/'
+                <Link onClick={()=>umr_handleBlog(featured.id)}
+                  href={`/blogs/${featured.id}`}
                   className='flex items-center gap-3 text-sm font-medium text-darkBlue'
                 >
-                  Read More <BsArrowRight />
+                  Read More  <BsArrowRight />
                 </Link>
                 <span className='text-[#817D7D] text-xs'>
                   {featured.attributes.updatedAt}

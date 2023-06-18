@@ -131,16 +131,18 @@ const Banner = () => {
             })}
           </ul>
 
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex items-center pt-2 gap-4 mt-2">
             <div className="flex items-center gap-1">
               <Image src={plusIcon} alt="" className="w-[20px]" />
-              <span className="text-white font-['Roboto'] text-sm font-normal">
-                Medical
-              </span>
+              <select className="text-white bg-transparent font-['Roboto'] text-sm font-normal w-[100px]">
+                <option className=" bg-blue-950 ">Medical</option>
+                <option className=" bg-blue-950 py-2 ">dental</option>
+                <option className=" bg-blue-950 ">vision</option>
+                
+                
+              </select>
             </div>
-            <div>
-              <MdKeyboardArrowDown className="text-2xl text-white" />
-            </div>
+            
           </div>
         </div>
       </div>
