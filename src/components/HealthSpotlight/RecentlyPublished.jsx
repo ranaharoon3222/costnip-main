@@ -20,7 +20,7 @@ const RecentlyPublished = () => {
 
   return (
     <div className="hidden md:flex justify-between gap-5 w-3/4 m-auto py-12">
-      <div className="bg-[#4BC9F1] rounded-2xl basis-3/5 px-7 py-7 h-[480px]  overflow-auto ">
+      <div className="bg-[#4BC9F1] rounded-2xl basis-3/5 px-7 py-7 h-[615px]  overflow-auto ">
         <div className="flex justify-between mb-5">
           <div>
             <h4 className="text-white text-2xl leading-10 font-semibold">
