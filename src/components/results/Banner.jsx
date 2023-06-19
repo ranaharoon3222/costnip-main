@@ -17,9 +17,8 @@ const Banner = () => {
   
   ///////////////////////GETZIPCODE////////////////////////////
   
-  const API_KEY = '2gw07elykpQDAke5Mc9OCUOiFCgCgxTW';
-
-    
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+      
 
   console.log(latitude, longitude);
   console.log(API_KEY)
