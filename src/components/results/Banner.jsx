@@ -1,33 +1,45 @@
 import Image from "next/image";
 import styles from "@/styles/styles";
 import { BsSearch } from "react-icons/bs";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 import plusIcon from "../../assets/plus-icon.png";
 import React, { useState, useEffect } from "react";
-// import { getZipCode } from "../getzipCode";
 import { Location } from "../location";
 import { useStoreActions } from "easy-peasy";
 
 const Banner = () => {
+  
   const [inputData, setInputData] = useState("");
   const { latitude, longitude } = Location();
   const [show, setShow] = useState(false);
-
+  
   const saveResult = useStoreActions(action => action.saveResults)
-
+  
   ///////////////////////GETZIPCODE////////////////////////////
-  // const [zipCode, setZipCode] = useState(null);
+  
+  const API_KEY = '2gw07elykpQDAke5Mc9OCUOiFCgCgxTW';
 
-  // useEffect(() => {
-  //   // Replace with your logic to retrieve the user's latitude and longitude
-  //   const latitude2 = latitude; // Example latitude
-  //   const longitude2 = longitude; // Example longitude
+    
 
-  //   getZipCode(latitude2, longitude2)
-  //     .then((result) => setZipCode(result))
-  //     .catch((error) => console.error(error));
-  // }, []);
+  console.log(latitude, longitude);
+  console.log(API_KEY)
+
+  const url = `http://www.mapquestapi.com/geocoding/v1/reverse?key=${API_KEY}&location=${latitude},${longitude}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const results = data.results[0];
+      const postalCode = results.locations[0].postalCode;
+
+      console.log('results', results)
+      console.log('Code',postalCode);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+    
+
+
   ///////////////////////GETZIPCODE////////////////////////////
 
   const [data, setData] = useState([]);
@@ -39,8 +51,7 @@ const Banner = () => {
     try {
       const response = await fetch(
         `https://cnbackend.appspot.com/search?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&search=${inputData}&radius=2000&location=${Math.floor(
-          latitude
-        )},-${Math.floor(longitude)}`
+          latitude )},-${Math.floor(longitude)}`
       );
       const data = await response.json();
 
@@ -49,14 +60,12 @@ const Banner = () => {
       saveResult(data)
 
     } catch (error) {
-      // console.error('Error fetching data:', error);
     }
   };
 
   function handleChange(e) {
     setInputData(e.target.value);
   }
-  // console.log(inputData);
 
   const handleshow = () => {
     setShow(false);
@@ -68,19 +77,15 @@ const Banner = () => {
     <div
       className={`${styles.width} md:py-12 py-6 px-7 md:px-0 bg-darkBlue md:rounded-[20px]`}
     >
-      {/* /////////////////////////////// */}
-      {/* {zipCode ? (
-        <p className="text-yellow-300">Users ZIP code pr ha : {zipCode}</p>
-      ) : (
-        <p>Loading ZIP code...</p>
-      )} */}
+      {/* ////////////ZIPCODE/////////////////// */}
+      
+     
       {/* /////////////////////////////// */}
 
       <div className="items-center md:flex">
         <div className="md:pl-14">
           <h1 className="text-white font-bold leading-[50px] md:leading-[50px] text-[30px] md:text-[50px] md:w-1/2 text-center md:text-left mb-5 md:mb-0">
-            {" "}
-            Pricecare Search
+              Pricecare Search
           </h1>
         </div>
 
