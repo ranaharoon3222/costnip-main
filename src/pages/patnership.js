@@ -38,8 +38,8 @@ const Patnership = () => {
   data.map((item, ind)=>{
     return(
 
-        <div key={ind} className="text-center">
-          <div className="max-w-[150px] mx-[auto] shadow-lg rounded-lg">
+        <div key={ind} className="text-center p-12">
+          <div className=" mx-[auto] shadow-lg rounded-lg">
             <img src="webProgrammer.jpg" alt="" />
             <h3 className="text-purple-950  text-center py-4 font-semibold">{item.name}</h3>
           </div>

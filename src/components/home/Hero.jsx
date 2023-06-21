@@ -6,10 +6,9 @@ import { BsSearch } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
 import plusIcon from '../../assets/plus-icon.png';
 import Link from 'next/link';
-import MobileTabs from '../mobileTabs';
+
 
 const Hero = () => {
-
 
   return (
     <div
@@ -75,7 +74,6 @@ const Hero = () => {
           
         </div>
       </div>
-      <MobileTabs/>
     </div>
   );
 };
