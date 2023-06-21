@@ -62,71 +62,28 @@ const Featured = ({ resources }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
-  // const featured = [
-  //   {
-  //     img: featured1,
-  //     heading: 'The Benefits of Regular Exercise for Your Mental Health',
-  //     descp:
-  //       'Use our search and filtering system to find medical, dental, and vision...',
-  //     type: 'Guest Blog',
-  //     writtenBy: 'Written by Care Rosenbloom',
-  //     date: 'April 16, 2023',
-  //   },
-  //   {
-  //     img: featured2,
-  //     heading: 'Studies have shown that exercise can reduce symptoms',
-  //     descp:
-  //       'Use our search and filtering system to find medical, dental, and vision...',
-  //     type: 'Insight',
-  //     writtenBy: 'Written by Care Rosenbloom',
-  //     date: 'April 16, 2023',
-  //   },
-  //   {
-  //     img: featured3,
-  //     heading: 'Incorporating physical activity into your daily routine',
-  //     descp: 'Incorporating physical activity into your daily routine',
-  //     type: 'News',
-  //     writtenBy: 'Written by Care Rosenbloom',
-  //     date: 'April 16, 2023',
-  //   },
-  //   {
-  //     img: featured1,
-  //     heading: 'The Benefits of Regular Exercise for Your Mental Health',
-  //     descp: 'The Benefits of Regular Exercise for Your Mental Health',
-  //     type: 'Guest Blog',
-  //     writtenBy: 'Written by Care Rosenbloom',
-  //     date: 'April 16, 2023',
-  //   },
-  //   {
-  //     img: featured2,
-  //     heading: 'Studies have shown that exercise can reduce symptoms',
-  //     descp:
-  //       'Use our search and filtering system to find medical, dental, and vision...',
-  //     type: 'Insight',
-  //     writtenBy: 'Written by Care Rosenbloom',
-  //     date: 'April 16, 2023',
-  //   },
-  //   {
-  //     img: featured3,
-  //     heading: 'Incorporating physical activity into your daily routine',
-  //     descp: 'Incorporating physical activity into your daily routine',
-  //     type: 'News',
-  //     writtenBy: 'Written by Care Rosenbloom',
-  //     date: 'April 16, 2023',
-  //   },
-  // ];
 
-  const umr_handleBlog = (id)=>{
-    console.log(id)
-  }
-
+  const umr_handleBlog = (id) => {
+    console.log(id);
+  };
 
   return (
     <div>
-      <div className='hidden mt-8 md:block filter-div'>
+      <div className='mt-8 filter-div'>
         <Slider {...settings} className=''>
           {resources?.map((featured) => (
             <div key={featured.id} className='md:px-[5%]'>
@@ -159,11 +116,12 @@ const Featured = ({ resources }) => {
               </span>
 
               <div className='flex justify-between pt-2 border-t-[1px] border-solid border-[#E0DBDB]'>
-                <Link onClick={()=>umr_handleBlog(featured.id)}
+                <Link
+                  onClick={() => umr_handleBlog(featured.id)}
                   href={`/blogs/${featured.id}`}
                   className='flex items-center gap-3 text-sm font-medium text-darkBlue'
                 >
-                  Read More  <BsArrowRight />
+                  Read More <BsArrowRight />
                 </Link>
                 <span className='text-[#817D7D] text-xs'>
                   {featured.attributes.updatedAt}
@@ -172,10 +130,6 @@ const Featured = ({ resources }) => {
             </div>
           ))}
         </Slider>
-      </div>
-
-      <div className='block md:hidden bg-[#FFFFFF] rounded-lg p-4 box-shaddow2'>
-        <MobileViewBlogs />
       </div>
     </div>
   );

@@ -13,7 +13,6 @@ const health = () => {
       <Index />
       <RecentlyPublished />
       <HealthTopics />
-      <MobileViewBlogSlides />
       <Sponsored />
     </>
   );

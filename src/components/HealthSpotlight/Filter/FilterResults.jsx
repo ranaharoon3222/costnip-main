@@ -5,7 +5,7 @@ import Featured from './Featured';
 const FilterResults = ({ resources }) => {
   return (
     <div>
-      <div className='hidden md:block'>
+      <div className=''>
         <FilterType type='Featured' />
       </div>
       <Featured resources={resources} />
