@@ -138,7 +138,7 @@ const Banner = () => {
           <div className="flex items-center pt-2 gap-4 mt-2">
             <div className="flex items-center gap-1">
               <Image src={plusIcon} alt="" className="w-[20px]" />
-              <select className="text-white bg-transparent font-['Roboto'] text-sm font-normal w-[100px]">
+              <select className="text-white bg-transparent font-['Roboto'] text-sm font-normal w-[100px] cursor-pointer">
                 <option className=" bg-blue-950 ">Medical</option>
                 <option className=" bg-blue-950 py-2 ">dental</option>
                 <option className=" bg-blue-950 ">vision</option>

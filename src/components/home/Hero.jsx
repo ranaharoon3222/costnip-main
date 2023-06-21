@@ -3,10 +3,10 @@ import Image from 'next/image';
 import styles from '@/styles/styles';
 import hero from '../../assets/hero-img.png';
 import { BsSearch } from 'react-icons/bs';
-import { MdKeyboardArrowDown } from 'react-icons/md';
 import { AiOutlineSearch } from 'react-icons/ai';
 import plusIcon from '../../assets/plus-icon.png';
 import Link from 'next/link';
+import MobileTabs from '../mobileTabs';
 
 const Hero = () => {
 
@@ -62,17 +62,20 @@ const Hero = () => {
 
 
         <div className='flex items-center gap-4 mt-2'>
-          <div className='flex items-center gap-1'>
-            <Image src={plusIcon} alt='' className='w-[20px]' />
-            <span className="text-white font-['Roboto'] text-sm font-normal">
-              Medical
-            </span>
-          </div>
-          <div>
-            <MdKeyboardArrowDown className='text-2xl text-white' />
-          </div>
+        <div className="flex items-center gap-1">
+              <Image src={plusIcon} alt="" className="w-[20px]" />
+              <select className="text-white bg-transparent font-['Roboto'] text-sm font-normal w-[100px] cursor-pointer">
+                <option className=" bg-blue-950 ">Medical</option>
+                <option className=" bg-blue-950 py-2 ">dental</option>
+                <option className=" bg-blue-950 ">vision</option>
+                
+                
+              </select>
+            </div>
+          
         </div>
       </div>
+      <MobileTabs/>
     </div>
   );
 };
