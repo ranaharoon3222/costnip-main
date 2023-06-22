@@ -1,18 +1,17 @@
 import Email from "@/components/email";
+import Loading from "@/components/loding";
+import { useFetcher } from "@/helpers/fetch";
+import { useMedia } from "@/helpers/useMedia";
 
 const Patnership = () => {
+  const { getUrl } = useMedia();
 
-  const data = [
-    {
-      name : 'Advocate'
-    },
-    {
-      name : 'Advocate'
-    },
-    {
-      name : 'Advocate'
-    }
-  ]
+
+  const { data, isLoading, error } = useFetcher('/api/partners?populate=*');
+
+  if (isLoading) return <Loading />;
+  if (error) return <h1>Error</h1>;
+  console.log(data)
 
 
   return (
@@ -35,13 +34,14 @@ const Patnership = () => {
       {/* //////////card//////////////////////////// */}
       <div className="grid grid-cols-1 md:grid-cols-3 w-full max-w-screen-xl mx-[auto] my-16">
 {
-  data.map((item, ind)=>{
+  data?.data?.map((item)=>{
+    console.log(item)
     return(
 
-        <div key={ind} className="text-center p-12">
+        <div key={item.id} className="text-center p-12">
           <div className=" mx-[auto] shadow-lg rounded-lg">
-            <img src="webProgrammer.jpg" alt="" />
-            <h3 className="text-purple-950  text-center py-4 font-semibold">{item.name}</h3>
+            <img className="min-h-[250px] max-h-[250px] mx-[auto]" src={getUrl(item.attributes.image)} alt="" />
+            <h3 className="text-purple-950  text-center py-4 font-semibold">{item.attributes.title}</h3>
           </div>
         </div>
 

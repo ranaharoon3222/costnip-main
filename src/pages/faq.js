@@ -2,14 +2,13 @@ import React from 'react';
 import { useFetcher } from '@/helpers/fetch';
 import { Disclosure } from '@headlessui/react';
 import { ChevronUpIcon } from '@heroicons/react/20/solid';
-import DefaultLoading from '@/components/loding';
+import Loading from '@/components/loding';
 // import { Transition } from '@headlessui/react';
 
 const Index = () => {
   const { data, isLoading, error } = useFetcher('/api/faqs');
-  // console.log(data, isLoading, error);
 
-  if (isLoading) return <DefaultLoading />;
+  if (isLoading) return <Loading />;
   if (error) return <h1>Error</h1>;
 
   return (

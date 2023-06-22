@@ -1,8 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import featured1 from '../../../assets/featured1.png';
-import featured2 from '../../../assets/featured2.png';
-import featured3 from '../../../assets/featured3.png';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -10,8 +6,6 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsArrowRight } from 'react-icons/bs';
 import Link from 'next/link';
-import FilterType from './FilterType';
-import MobileViewBlogs from '../MobileViewBlogs';
 import { useMedia } from '@/helpers/useMedia';
 
 function SampleNextArrow(props) {

@@ -12,8 +12,9 @@ const HealthTopics = () => {
         <FilterType type='Health Topics' />
         <div className='relative'>
           <Featured />
+          
 
-          <div className='hidden md:block absolute top-[52%] right-[-9%]'>
+          <div className=' md:block absolute top-[52%] right-[-9%]'>
             <Link href='/' className={styles.viewLink}>
               VIEW ALL <BsArrowRight />
             </Link>
