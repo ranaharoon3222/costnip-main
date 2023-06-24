@@ -6,12 +6,24 @@ import plusIcon from "../../assets/plus-icon.png";
 import React, { useState, useEffect } from "react";
 import { Location } from "../location";
 import { useStoreActions } from "easy-peasy";
+import { useRouter } from "next/router";
 
 const Banner = () => {
   
   const [inputData, setInputData] = useState("");
   const { latitude, longitude } = Location();
   const [show, setShow] = useState(false);
+
+  const router = useRouter()
+  
+  useEffect(()=>{
+    if( !router.query) return;
+    const {searchdata} = router.query
+    if( searchdata) {
+      setInputData(searchdata)
+    }
+    console.log('searchdata: ', searchdata);
+  },[router.query])
   
   const saveResult = useStoreActions(action => action.saveResults)
   
@@ -20,8 +32,8 @@ const Banner = () => {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
       
 
-  console.log(latitude, longitude);
-  console.log(API_KEY)
+  // console.log(latitude, longitude);
+  // console.log(API_KEY)
 
   const url = `http://www.mapquestapi.com/geocoding/v1/reverse?key=${API_KEY}&location=${latitude},${longitude}`;
   fetch(url)
@@ -30,8 +42,8 @@ const Banner = () => {
       const results = data.results[0];
       const postalCode = results.locations[0].postalCode;
 
-      console.log('results', results)
-      console.log('Code',postalCode);
+      // console.log('results', results)
+      // console.log('Code',postalCode);
     })
     .catch(error => {
       console.error('Error:', error);
@@ -42,11 +54,13 @@ const Banner = () => {
   ///////////////////////GETZIPCODE////////////////////////////
 
   const [data, setData] = useState([]);
+  console.log('dataNew: ', data);
   useEffect(() => {
     fetchData();
   }, [inputData]);
 
   const fetchData = async () => {
+    if(!inputData) return;
     try {
       const response = await fetch(
         `https://cnbackend.appspot.com/search?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&search=${inputData}&radius=2000&location=${Math.floor(

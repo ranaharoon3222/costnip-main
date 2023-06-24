@@ -72,7 +72,7 @@ const Featured = ({ resources }) => {
   };
 
   const umr_handleBlog = (id) => {
-    console.log(id);
+    // console.log(id);
   };
 
   return (
@@ -96,15 +96,7 @@ const Featured = ({ resources }) => {
               <h5 className='font-bold text-[#2C2524] leading-7 text-base mt-4 mb-2 min-h-[57px]'>
                 {featured.attributes.title}
               </h5>
-              <p
-                className='text-[#98989E] text-sm leading-6'
-                dangerouslySetInnerHTML={{
-                  __html:
-                    featured.attributes.text
-                      .replace(/(<([^>]+)>)/gi, '')
-                      .substring(0, 200) + '...',
-                }}
-              ></p>
+              <p className='text-[#98989E] text-sm leading-6'>{featured.attributes.short_description}</p>
               <span className='block py-2 text-xs font-medium text-darkBlue'>
                 {featured.attributes.author}
               </span>
