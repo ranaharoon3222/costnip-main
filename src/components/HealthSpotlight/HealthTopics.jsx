@@ -47,15 +47,9 @@ const HealthTopics = () => {
                               {ele.attributes.title}
                             </h5>
 
-                            <p
-                              className='text-[#98989E] text-sm leading-6'
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  ele.attributes.text
-                                    .replace(/(<([^>]+)>)/gi, '')
-                                    .substring(0, 200) + '...',
-                              }}
-                            ></p>
+                            <p className='text-[#98989E] text-sm leading-6'>
+                              {ele.attributes.short_description}
+                            </p>
 
                             <span className='block py-2 text-xs font-medium text-darkBlue'>
                               {featured.attributes.author}
@@ -63,8 +57,8 @@ const HealthTopics = () => {
 
                             <div className='flex justify-between pt-2 border-t-[1px] border-solid border-[#E0DBDB]'>
                               <Link
-                                onClick={() => umr_handleBlog(featured.id)}
-                                href={`/blogs/${featured.id}`}
+                                // onClick={() => umr_handleBlog(featured.id)}
+                                href={`/blogs/${ele.id}`}
                                 className='flex items-center gap-3 text-sm font-medium text-darkBlue'
                               >
                                 Read More <BsArrowRight />
