@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs';
-
+import Banner from '@/components/home/Hero';
 const Pricecare = () => {
   return (
     <>
@@ -50,13 +50,7 @@ const Pricecare = () => {
       </div>
       {/* /////////head////////// */}
       {/* /////////saving////////// */}
-      <div className='bg-[#203d86] '>
-        <div className='py-12 w-[90%] max-w-[1300px] mx-[auto]'>
-          <h1 className='text-xl font-bold text-center text-white'>
-            Start your saving search here
-          </h1>
-        </div>
-      </div>
+      <Banner />
       {/* /////////saving////////// */}
       {/* /////////parency////////// */}
       <div className='grid grid-cols-1 md:grid-cols-3 w-[90%] max-w-[1300px] mx-[auto] py-24  '>
