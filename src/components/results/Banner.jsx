@@ -13,14 +13,25 @@ const Banner = () => {
   const { latitude, longitude } = Location();
   const [show, setShow] = useState(false);
 
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router.query) return;
+    const { searchdata } = router.query;
+    if (searchdata) {
+      setInputData(searchdata);
+    }
+    console.log('searchdata: ', searchdata);
+  }, [router.query]);
+
   const saveResult = useStoreActions((action) => action.saveResults);
 
   ///////////////////////GETZIPCODE////////////////////////////
 
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
-  console.log(latitude, longitude);
-  console.log(API_KEY);
+  // console.log(latitude, longitude);
+  // console.log(API_KEY)
 
   const url = `http://www.mapquestapi.com/geocoding/v1/reverse?key=${API_KEY}&location=${latitude},${longitude}`;
   fetch(url)
@@ -29,8 +40,8 @@ const Banner = () => {
       const results = data.results[0];
       const postalCode = results.locations[0].postalCode;
 
-      console.log('results', results);
-      console.log('Code', postalCode);
+      // console.log('results', results)
+      // console.log('Code',postalCode);
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -118,12 +129,16 @@ const Banner = () => {
                 }
               };
               return (
-                <div key={ind} style={{ display: show === true && 'none' }}>
+                <div
+                  key={ind}
+                  className='hidden'
+                  style={{ display: show === true ? 'none' : 'block' }}
+                >
                   <li
                     className='px-4 py-2 border-b-2 cursor-pointer '
-                    onClick={() => handleGetData(ele.service_details)}
+                    onClick={() => handleGetData(ele.service_code)}
                   >
-                    {ele.service_details}
+                    {ele.service_code}
                   </li>
                 </div>
               );
