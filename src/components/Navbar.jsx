@@ -80,7 +80,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-5 md:gap-14">
             <ul className="hidden p-0 md:flex gap-14">
-              <ListItem href="/result" text="Pricecare Search" />
+              <ListItem href="/pricecare" text="Pricecare Search" />
               <ListItem href="/health" text="Health Spotlight" />
             </ul>
 
@@ -138,7 +138,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col py-14">
               <ul className="uppercase">
-                <Link href="/result">
+                <Link href="/pricecare">
                   <li
                     onClick={() => setNav(false)}
                     className="py-4 text-sm font-medium text-white"

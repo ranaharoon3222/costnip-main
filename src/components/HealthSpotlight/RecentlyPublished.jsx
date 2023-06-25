@@ -23,9 +23,7 @@ const RecentlyPublished = () => {
       <div className="bg-[#4BC9F1] rounded-2xl basis-3/5 px-7 py-7 h-[615px]  overflow-auto ">
         <div className="flex justify-between mb-5">
           <div>
-            <h4 className="text-white text-2xl leading-10 font-semibold">
-              Recently Published
-            </h4>
+            <h4 className="text-white text-2xl leading-10 font-semibold">Recently Published </h4>
           </div>
 
           <div className="flex items-center gap-1">
@@ -56,9 +54,7 @@ const RecentlyPublished = () => {
                 <h4 className="text-[#000000] font-medium uppercase mt-2 mb-2 text-xl">
                   {item.attributes.title}
                 </h4>
-                <p className="text-[#6E6E73] leading-6 text-sm mt-1 mb-3">
-                  
-                <div dangerouslySetInnerHTML={{__html: item.attributes.text .replace(/(<([^>]+)>)/gi, '')
+                <p className="text-[#6E6E73] leading-6 text-sm mt-1 mb-3"> <div dangerouslySetInnerHTML={{__html: item.attributes.text .replace(/(<([^>]+)>)/gi, '')
                       .substring(0, 200) + '...',}} />
                 </p>
                 <span className="text-[#000000] text-xs">

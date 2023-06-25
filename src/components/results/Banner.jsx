@@ -6,6 +6,7 @@ import plusIcon from '../../assets/plus-icon.png';
 import React, { useState, useEffect } from 'react';
 import { Location } from '../location';
 import { useStoreActions } from 'easy-peasy';
+import { useRouter } from 'next/router';
 
 const Banner = () => {
   const [inputData, setInputData] = useState('');
@@ -38,11 +39,13 @@ const Banner = () => {
   ///////////////////////GETZIPCODE////////////////////////////
 
   const [data, setData] = useState([]);
+  console.log('dataNew: ', data);
   useEffect(() => {
     fetchData();
   }, [inputData]);
 
   const fetchData = async () => {
+    if (!inputData) return;
     try {
       const response = await fetch(
         `https://cnbackend.appspot.com/search?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&search=${inputData}&radius=2000&location=${Math.floor(
