@@ -29,10 +29,12 @@ const Blog = () => {
 
       <img className="py-6 w-[1000px] object-cover h-[500px] mx-[auto] " src= {getUrl(data.data.attributes.thumbnail)} alt="image" /> 
 </div>
-          
+          <div className="blogs">
       <div className="w-full max-w-screen-lg mx-[auto] pt-6 pb-12 px-2 md:px-8"
       dangerouslySetInnerHTML={{__html: data.data.attributes.text}}
     />
+</div>
+
     </>
   );
 };
