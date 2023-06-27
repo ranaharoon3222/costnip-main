@@ -142,6 +142,9 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 :root {
   color-scheme: light !important;
 }
