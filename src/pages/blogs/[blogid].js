@@ -4,8 +4,11 @@ import { useMedia } from "@/helpers/useMedia";
 import { useRouter } from "next/router";
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 import { FacebookShareButton, FacebookIcon } from 'react-share';
+import {DiscussionEmbed} from "disqus-react"
 
 const Blog = () => {
+
+  
   const router = useRouter();
   const blogid = router.query.blogid;
 
@@ -18,7 +21,16 @@ const Blog = () => {
   if (isLoading) return <Loading />;
   if (error) return <h1>Error</h1>;
 
-  console.log('latest', data);
+  // console.log('latest', data.data.attributes.title);
+
+  ////////disqus/////////////////////////
+  const disqusShortname = "websolave"
+  const disqusConfig = {
+    url: location.href,
+    identifier: blogid, // Single post id
+    title: data.data.attributes.title // Single post title
+  }
+  ////////disqus/////////////////////////
 
   return (
     <>
@@ -63,6 +75,25 @@ const Blog = () => {
       dangerouslySetInnerHTML={{__html: data.data.attributes.text}}
     />
 </div>
+
+{/* //////////////////////disqus/////////////// */}
+<div className="w-full max-w-screen-lg mx-[auto]">
+      <DiscussionEmbed
+        shortname={disqusShortname}
+        config={disqusConfig}
+      />
+    </div>
+{/* //////////////////////disqus/////////////// */}
+
+
+
+
+
+
+
+
+
+
 
     </>
   );
