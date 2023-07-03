@@ -23,20 +23,23 @@ const Blog = () => {
   return (
     <>
       <div className='w-full max-w-screen-lg mx-[auto] '>
-        <h1 className='px-2 text-2xl font-bold md:px-6'>
+        {/* <h1 className='px-2 text-2xl font-bold md:px-6'>
           {data.data.attributes.title}
-        </h1>
+        </h1> */}
 
   <h1 className="px-2 md:px-6 font-bold text-2xl">{data.data.attributes.title}</h1>
 
       <img className="py-6 w-[1000px] object-cover h-[500px] mx-[auto] " src= {getUrl(data.data.attributes.thumbnail)} alt="image" /> 
 </div>
+
+
+
 <div className="fixed bottom-10 left-10">
       <FacebookShareButton
         url={location.href}
         quote={'Dummy text!'}
-        hashtag="#muo"
-        className="mr-2"
+       
+        className="mb-2 block"
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
@@ -44,11 +47,17 @@ const Blog = () => {
       <TwitterShareButton
   url={'location.href'}
   quote={'Dummy text!'}
-  hashtag="#muo"
+ 
 >
   <TwitterIcon size={32} round />
 </TwitterShareButton>
+
     </div>
+
+
+
+
+
           <div className="blogs">
       <div className="w-full max-w-screen-lg mx-[auto] pt-6 pb-12 px-2 md:px-8"
       dangerouslySetInnerHTML={{__html: data.data.attributes.text}}
