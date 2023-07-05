@@ -32,42 +32,48 @@ const HealthTopics = () => {
                     {featured.attributes.blogs.data.map((ele) => {
                       return (
                         <>
-                          <div className='md:px-[5%] '>
-                            <div className='relative'>
-                              <img
-                                src={getUrl(ele.attributes.image)}
-                                alt=''
-                                className='rounded-lg max-h-[300px]'
-                              />
-                              <div className='absolute top-[15px] right-[10px] bg-primary text-[10px] py-2 px-4 text-white font-semibold rounded-md'>
-                                <span>{featured.attributes.title} </span>;
+                          <Link
+                            href={`/blogs/${ele.attributes.slug}`}
+                            className=''
+                          >
+                            {' '}
+                            <div className='md:px-[5%] '>
+                              <div className='relative'>
+                                <img
+                                  src={getUrl(ele.attributes.image)}
+                                  alt=''
+                                  className='rounded-lg max-h-[300px]'
+                                />
+                                <div className='absolute top-[15px] right-[10px] bg-primary text-[10px] py-2 px-4 text-white font-semibold rounded-md'>
+                                  <span>{featured.attributes.title} </span>;
+                                </div>
+                              </div>
+                              <h5 className='font-bold text-[#2C2524] leading-7 text-base mt-4 mb-2 min-h-[57px]'>
+                                {ele.attributes.title}
+                              </h5>
+
+                              <p className='text-[#98989E] text-sm leading-6'>
+                                {ele.attributes.short_description}
+                              </p>
+
+                              <span className='block py-2 text-xs font-medium text-darkBlue'>
+                                {featured.attributes.author}
+                              </span>
+
+                              <div className='flex justify-between pt-2 border-t-[1px] border-solid border-[#E0DBDB]'>
+                                <Link
+                                  // onClick={() => umr_handleBlog(featured.id)}
+                                  href={`/blogs/${ele.attributes.slug}`}
+                                  className='flex items-center gap-3 text-sm font-medium text-darkBlue'
+                                >
+                                  Read More <BsArrowRight />
+                                </Link>
+                                <span className='text-[#817D7D] text-xs'>
+                                  {featured.attributes.updatedAt}
+                                </span>
                               </div>
                             </div>
-                            <h5 className='font-bold text-[#2C2524] leading-7 text-base mt-4 mb-2 min-h-[57px]'>
-                              {ele.attributes.title}
-                            </h5>
-
-                            <p className='text-[#98989E] text-sm leading-6'>
-                              {ele.attributes.short_description}
-                            </p>
-
-                            <span className='block py-2 text-xs font-medium text-darkBlue'>
-                              {featured.attributes.author}
-                            </span>
-
-                            <div className='flex justify-between pt-2 border-t-[1px] border-solid border-[#E0DBDB]'>
-                              <Link
-                                // onClick={() => umr_handleBlog(featured.id)}
-                                href={`/blogs/${ele.id}`}
-                                className='flex items-center gap-3 text-sm font-medium text-darkBlue'
-                              >
-                                Read More <BsArrowRight />
-                              </Link>
-                              <span className='text-[#817D7D] text-xs'>
-                                {featured.attributes.updatedAt}
-                              </span>
-                            </div>
-                          </div>
+                          </Link>
                         </>
                       );
                     })}
