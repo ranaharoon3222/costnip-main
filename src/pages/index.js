@@ -9,9 +9,37 @@ import ResourceLibrary from '@/components/home/ResourceLibrary';
 import ShareCharges from '@/components/home/ShareCharges';
 import Testimonials from '@/components/home/Testimonials';
 import VideoPreview from '@/components/home/VideoPreview';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
 const Home = () => {
+  const router = useRouter();
+  const { access_token } = router.query;
+  const saveUser = useStoreActions((action) => action.saveUser);
+
+  const setUser = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API}/api/auth/google/callback?access_token=${access_token}`
+      );
+      const data = await res.json();
+
+      localStorage.setItem('bill', true);
+      console.log(data);
+      saveUser(data.user);
+      router.push('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (access_token) {
+      setUser();
+    }
+  }, [access_token]);
+
   return (
     <>
       <Hero />

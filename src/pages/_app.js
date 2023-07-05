@@ -1,10 +1,10 @@
-import "@/styles/globals.css";
-import Footer from "@/components/footer";
-import Navbar from "@/components/Navbar";
-import { SWRConfig } from "swr";
-import { StoreProvider } from "easy-peasy";
-import { store } from "@/store/store";
-import MobileTabs from "@/components/mobileTabs";
+import '@/styles/globals.css';
+import Footer from '@/components/footer';
+import Navbar from '@/components/Navbar';
+import { SWRConfig } from 'swr';
+import { StoreProvider } from 'easy-peasy';
+import { store } from '@/store/store';
+import MobileTabs from '@/components/mobileTabs';
 
 export default function App({ Component, ...pageProps }) {
   const baseUrl = process.env.NEXT_PUBLIC_API;
@@ -21,11 +21,11 @@ export default function App({ Component, ...pageProps }) {
         >
           <Navbar />
 
-          <MobileTabs  />
+          <MobileTabs />
 
           <Component {...pageProps} />
           <Footer />
-        </SWRConfig>{" "}
+        </SWRConfig>{' '}
       </StoreProvider>
     </>
   );
