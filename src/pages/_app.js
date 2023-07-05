@@ -12,15 +12,17 @@ export default function App({ Component, ...pageProps }) {
   const baseUrl = process.env.NEXT_PUBLIC_API;
   const isWindow = () => {
     if (typeof window !== undefined) {
-      return window.botpressWebChat.init({
-        composerPlaceholder: 'Chat with bot',
-        botConversationDescription:
-          'This chatbot was built surprisingly fast with Botpress',
-        botId: 'dcd69f5a-39ef-4c66-874e-afebca5e3c1e',
-        hostUrl: 'https://cdn.botpress.cloud/webchat/v0',
-        messagingUrl: 'https://messaging.botpress.cloud',
-        clientId: 'dcd69f5a-39ef-4c66-874e-afebca5e3c1e',
-      });
+      setTimeout(() => {
+        return window.botpressWebChat.init({
+          composerPlaceholder: 'Chat with bot',
+          botConversationDescription:
+            'This chatbot was built surprisingly fast with Botpress',
+          botId: 'dcd69f5a-39ef-4c66-874e-afebca5e3c1e',
+          hostUrl: 'https://cdn.botpress.cloud/webchat/v0',
+          messagingUrl: 'https://messaging.botpress.cloud',
+          clientId: 'dcd69f5a-39ef-4c66-874e-afebca5e3c1e',
+        });
+      }, 2000);
     }
   };
 
