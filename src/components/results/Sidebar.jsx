@@ -4,6 +4,7 @@ import img1 from '../../assets/image 2.png';
 import logo from '../../assets/logo-icon.png';
 import lock from '../../assets/lock.png';
 import { MdOutlineCloudUpload } from 'react-icons/md';
+import Link from 'next/link';
 
 const Sidebar = () => {
   return (
@@ -15,18 +16,20 @@ const Sidebar = () => {
           className='w-full m-auto h-auto md:h-[250px]'
         />
 
-        <div className='flex flex-col gap-5 absolute top-[20px]'>
-          <Image src={lock} alt='' className='w-[25px] m-auto' />
-          <div className='bg-[#8A8985] rounded-lg blur-[0.403614px] w-4/5 m-auto px-3 py-4'>
-            <p className='text-base leading-5 text-center text-white opacity-100'>
-              Upload a bill or sign in to get access to details
-            </p>
+        <Link href={'/bill'}>
+          <div className='flex flex-col gap-5 absolute top-[20px]'>
+            <Image src={lock} alt='' className='w-[25px] m-auto' />
+            <div className='bg-[#8A8985] rounded-lg blur-[0.403614px] w-4/5 m-auto px-3 py-4'>
+              <p className='text-base leading-5 text-center text-white opacity-100'>
+                Upload a bill or sign in to get access to details
+              </p>
+            </div>
+            <span className='flex items-center gap-2 bg-[#3F3C3C] px-3 py-2 rounded-md text-xs text-white w-[120px] m-auto '>
+              <MdOutlineCloudUpload className='text-lg' />
+              Upload Bill
+            </span>
           </div>
-          <span className='flex items-center gap-2 bg-[#3F3C3C] px-3 py-2 rounded-md text-xs text-white w-[120px] m-auto '>
-            <MdOutlineCloudUpload className='text-lg' />
-            Upload Bill
-          </span>
-        </div>
+        </Link>
       </div>
 
       <div className='w-full mt-5'>

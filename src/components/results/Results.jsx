@@ -14,6 +14,7 @@ import { RxCross2 } from 'react-icons/rx';
 import { RiStarSLine } from 'react-icons/ri';
 import { FaFilter } from 'react-icons/fa';
 import { useStoreState } from 'easy-peasy';
+import { BsUpload } from 'react-icons/bs';
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -426,13 +427,25 @@ const Results = () => {
                   <h4 className='text-[#231D3C] text-lg md:text-2xl font-medium mb-[-6px]'>
                     <span className='text-[#959595] text-[10px]'>$</span>
                     {content.service_price}
+                    <small className='block text-xs text-[#959595]'>
+                      Hospital Reported Cash Price
+                    </small>
                   </h4>
                   <span className='text-[#3A3A3A] opacity-70 text-[10px] font-normal'></span>
                 </div>
                 <div>
-                  <h4 className='text-[#231D3C] text-lg md:text-2xl font-medium mb-[-8px]'>
-                    <span className='text-[#959595] text-[8px]'>$</span>
-                    40
+                  <h4 className='text-[#231D3C] text-lg md:text-2xl font-medium mb-[-8px] pb-6'>
+                    <Link href={'/bill'} className='text-base'>
+                      <span className='flex'>
+                        <span className='mr-2'>Add Yours </span>
+                        <BsUpload className='relative top-1' />
+                      </span>
+
+                      <small className='block text-xs text-[#959595]'>
+                        {' '}
+                        User Reported Price{' '}
+                      </small>
+                    </Link>
                   </h4>
                   <span className='text-[#3A3A3A] opacity-70 text-[10px] font-normal'>
                     {content.userPrice}

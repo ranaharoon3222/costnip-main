@@ -152,7 +152,7 @@ const Canvas = (props) => {
 
         localStorage.setItem('bill', true);
 
-        router.push('/');
+        router.back();
       })
       .catch((error) => {
         // handle errors
