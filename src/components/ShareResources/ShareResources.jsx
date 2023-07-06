@@ -10,6 +10,7 @@ import styles from '../../styles/styles';
 const ShareResources = () => {
   const [val, setVal] = useState({});
   const [file, setFile] = useState();
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setVal((prev) => {
@@ -23,26 +24,36 @@ const ShareResources = () => {
     }
   };
   const handleSubmit = async (e) => {
+    setLoading(true);
     console.log(val, file);
 
     e.preventDefault();
 
-    const data = {
-      full_name: val.full_name,
-      email: val.email,
-      phone: val.phone,
-      type: val.type,
-    };
-    const formData = new FormData();
+    try {
+      const data = {
+        full_name: val.full_name,
+        email: val.email,
+        phone: val.phone,
+        type: val.type,
+      };
+      const formData = new FormData();
 
-    formData.append(`files.attachment`, file, file.name);
+      formData.append(`files.attachment`, file, file.name);
 
-    formData.append('data', JSON.stringify(data));
+      formData.append('data', JSON.stringify(data));
 
-    await fetch(`${process.env.NEXT_PUBLIC_API}/api/shared-resources`, {
-      method: 'POST',
-      body: formData,
-    });
+      await fetch(`${process.env.NEXT_PUBLIC_API}/api/shared-resources`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      alert('Upload Successful');
+      setLoading(false);
+      location.reload();
+    } catch (error) {
+      alert('Something went wrong try uploading image less then 1 mb');
+      setLoading(false);
+    }
   };
 
   return (
@@ -79,6 +90,7 @@ const ShareResources = () => {
                   placeholder='Enter your name'
                   className='px-1'
                   name='full_name'
+                  required
                   onChange={handleChange}
                 />
               </div>
@@ -95,6 +107,7 @@ const ShareResources = () => {
                   placeholder='Enter your email address'
                   className='px-1'
                   name='email'
+                  required
                   onChange={handleChange}
                 />
               </div>
@@ -110,6 +123,7 @@ const ShareResources = () => {
                   placeholder='Enter your phone number'
                   className='px-1'
                   name='phone'
+                  required
                   onChange={handleChange}
                 />
               </div>
@@ -124,6 +138,7 @@ const ShareResources = () => {
                   type='text'
                   placeholder='General Knowledge'
                   className='px-1'
+                  required
                   name='type'
                   onChange={handleChange}
                 />
@@ -142,6 +157,7 @@ const ShareResources = () => {
               </span>
               <input
                 type='file'
+                required
                 name='attachment'
                 onChange={handleFileChange}
                 placeholder=''
@@ -149,14 +165,14 @@ const ShareResources = () => {
               />
             </div>
             <span className='text-[#748397] text-xs md:text-sm block mt-1'>
-              Upload max Size: 3mb
+              Upload max Size: 1mb
             </span>
           </div>
           <button
             type='submit'
             className='mt-8 mb-10 md:mb-0 md:mt-12 bg-[#132758] font-semibold text-xs md:text-sm px-9 py-4 md:py-3 text-white rounded-lg w-full md:w-auto'
           >
-            Submit
+            {loading ? 'Submitting...' : 'Submit'}
           </button>
         </form>
 
