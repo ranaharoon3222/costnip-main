@@ -391,9 +391,7 @@ const Results = () => {
       </div>
 
       <div
-        className={` font-bold text-black text-5xl result-slider font-['Inter]   ${
-          !isUploaded ? 'blur-[3px]' : ''
-        } `}
+        className={` font-bold text-black text-5xl result-slider font-['Inter]    `}
       >
         <Slider {...settings} className=''>
           {resultData?.map((content) => (
@@ -413,12 +411,14 @@ const Results = () => {
                     {content.location}
                   </span>
                 </div>
-                <h6 className='text-[#696284] mb-1 mt-4'>
-                  {content.hospital_name}
-                </h6>
-                <span className='text-[#1F1548] opacity-50 font-normal w-3/5 block leading-4'>
-                  {content.hospital_address}
-                </span>
+                <div className={`${!isUploaded ? 'blur-[3px]' : ''}`}>
+                  <h6 className='text-[#696284] mb-1 mt-4'>
+                    {content.hospital_name}
+                  </h6>
+                  <span className='text-[#1F1548] opacity-50 font-normal w-3/5 block leading-4'>
+                    {content.hospital_address}
+                  </span>
+                </div>
               </div>
 
               <div>
