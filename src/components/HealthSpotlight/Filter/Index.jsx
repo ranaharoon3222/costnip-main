@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from '@/styles/styles';
-import Image from 'next/image';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { BsArrowRight } from 'react-icons/bs';
 import FilterResults from './FilterResults';

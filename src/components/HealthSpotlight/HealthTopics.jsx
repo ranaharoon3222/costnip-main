@@ -6,17 +6,93 @@ import styles from '@/styles/styles';
 import Loading from '../loding';
 import { useFetcher } from '@/helpers/fetch';
 import { useMedia } from '@/helpers/useMedia';
+import Slider from "react-slick";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <MdKeyboardArrowRight
+        style={{
+          ...style,
+          color: '#55857A',
+          fontSize: '32px',
+          background: '#F6F6F6',
+          borderRadius: '50%',
+          padding: '5px',
+          width: '35px',
+          height: '35px',
+        }}
+      />
+    </div>
+  );
+}
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <MdKeyboardArrowLeft
+        style={{
+          ...style,
+          color: '#55857A',
+          fontSize: '32px',
+          background: '#F6F6F6',
+          borderRadius: '50%',
+          padding: '5px',
+          width: '35px',
+          height: '35px',
+        }}
+      />
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
 
 const HealthTopics = () => {
+  
+
   const { data, isLoading, error } = useFetcher(
     '/api/blog-sections?populate[blogs][populate][0]=image'
   );
-  console.log('data:topics ', data);
+  
 
   const { getUrl } = useMedia();
 
   if (isLoading) return <Loading />;
   if (error) return <h1>Error</h1>;
+
+
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  };
+
 
   return (
     <>
@@ -27,13 +103,14 @@ const HealthTopics = () => {
               <FilterType type={featured.attributes.title} />
               <div className='relative'>
                 {/* ......////////////////////// */}
-                <div>
-                  <div className='grid grid-cols-1 mt-8 filter-div md:grid-cols-3 gap-y-6'>
+                
+                  
+                <Slider {...settings}>
                     {featured.attributes.blogs.data.map((ele) => {
                       return (
                         <>
                           <div className='md:px-[5%] '>
-                            <div className='relative'>
+                            <div className='relative text-left'>
                               <img
                                 src={getUrl(ele.attributes.image)}
                                 alt=''
@@ -71,8 +148,9 @@ const HealthTopics = () => {
                         </>
                       );
                     })}
-                  </div>
-                </div>
+                    </Slider> 
+                  
+                
                 {/* ......////////////////////// */}
                 <div className=' md:block absolute top-[52%] right-[-9%]'>
                   <Link href='/' className={styles.viewLink}>
@@ -86,6 +164,8 @@ const HealthTopics = () => {
       })}
     </>
   );
+
+    
 };
 
 export default HealthTopics;

@@ -10,7 +10,7 @@ const Footer = () => {
       name: 'Tools & info',
       menu: [
         {
-          link: '/result',
+          link: '/pricecare',
           text: 'Pricecare Search',
         },
         {

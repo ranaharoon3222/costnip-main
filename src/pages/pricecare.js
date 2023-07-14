@@ -75,9 +75,17 @@ const Pricecare = () => {
               </h2>
             </div>
             <div className='flex'>
+              <a href='https://www.facebook.com/Costnip' >
               <BsFacebook className='mr-1 text-xl' />
+              </a>
+              <a href='https://twitter.com/costnip'>
+
               <BsTwitter className='mr-1 text-xl' />
+              </a>
+              <a href='https://www.instagram.com/costnip/'>
+
               <BsInstagram className='text-xl ' />
+              </a>
             </div>
           </div>
           <div className='flex items-center py-12'>
