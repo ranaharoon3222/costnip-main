@@ -1,6 +1,7 @@
 import Loading from "@/components/loding";
 import { useFetcher } from "@/helpers/fetch";
 import { useMedia } from "@/helpers/useMedia";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Blog = () => {
@@ -22,7 +23,7 @@ const Blog = () => {
     <>
 <div className="w-full max-w-screen-lg mx-[auto] ">
 
-  <div className="text-5xl font-black pl-4"> <a href="/patnership"> &#8592; </a> </div>
+  <div className="text-5xl font-black pl-4"> <Link href="/patnership"> &#8592; </Link> </div>
 
   <h1 className="px-2 md:px-6 font-bold text-2xl">{data.data.attributes.title}</h1>
 
