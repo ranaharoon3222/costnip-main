@@ -42,6 +42,8 @@ const Blog = () => {
           {data.data.attributes.title}
         </h1> */}
 
+<div className="text-5xl font-black pl-4"> <a href="/health"> &#8592; </a> </div>
+
         <h1 className='px-2 pt-10 text-3xl font-bold '>
           {data.data[0].attributes.title}
         </h1>

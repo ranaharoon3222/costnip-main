@@ -5,6 +5,7 @@ import Button from "../Button";
 import ellips1 from "../../assets/discover1.png";
 import ellips2 from "../../assets/discover2.png";
 import ellips3 from "../../assets/discover3.png";
+import Link from "next/link";
 
 const ResourceLibrary = () => {
   return (
@@ -16,8 +17,9 @@ const ResourceLibrary = () => {
           <span className="font-light">Discover + Shared </span> <br />
           Library of useful healthcare resources
         </h3>
-
-        <Button link="Resource Library" />
+<Link href='/resources'>
+        <button className="bg-[#41a7af] p-3 rounded-xl">Resource Library</button>
+</Link>
 
         <Image
           src={ellips1}

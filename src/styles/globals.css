@@ -5,6 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.patnr-umr p{
+padding: 10px 0 30px 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
