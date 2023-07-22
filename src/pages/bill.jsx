@@ -4,12 +4,13 @@ import UploadBills from '@/components/Bill/UploadBills';
 import EditorModel from '@/components/image-editor/modal';
 import React from 'react';
 
+import axios from 'axios';
+
 const bill = () => {
   return (
     <>
       <HowBillWorks />
-      <UploadBills />
-      <UploadAccount />
+
       <EditorModel />
     </>
   );

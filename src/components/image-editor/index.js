@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { HexColorPicker } from 'react-colorful';
 import { Popover } from '@headlessui/react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 const Canvas = (props) => {
   const ref = useRef(null);
+  const router = useRouter();
 
   const [width, setWidth] = useState(0);
   const [image, setImage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const [pencilSize, setPencilSize] = useState(0);
   const [pencilColor, setPencilColor] = useState('black');
+  const [showCat, setShowCat] = useState(false);
+  const [showActions, setShowActions] = useState(false);
 
   const canvaRef = useRef(null);
 
@@ -119,9 +125,47 @@ const Canvas = (props) => {
     context.clearRect(0, 0, canvasElement.width, canvasElement.height);
   };
 
-  const onSave = () => {
+  const handleFileUpload = async (imageSrc) => {
+    setLoading(true);
+    // get the selected file from the input
+    // const file = event.target.files[0];
+    // create a new FormData object and append the file to it
+    const blob = await fetch(imageSrc).then((res) => res.blob());
+    console.log(blob);
+    const formData = new FormData();
+    formData.append('file', blob);
+    // make a POST request to the File Upload API with the FormData object and Rapid API headers
+    axios
+      .post(
+        'https://cnbackend.appspot.com/getBillDataFromUserUpload?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&category_id=1&file',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      )
+      .then((response) => {
+        // handle the response
+        console.log(response);
+        setLoading(false);
+
+        localStorage.setItem('bill', true);
+
+        router.back();
+      })
+      .catch((error) => {
+        // handle errors
+        console.log(error);
+        setLoading(false);
+        localStorage.setItem('bill', false);
+      });
+  };
+
+  const onSave = async () => {
     const canvasElement = canvaRef.current;
     const img = canvasElement.toDataURL('image/png');
+    await handleFileUpload(img);
     setImage(img);
   };
 
@@ -133,13 +177,16 @@ const Canvas = (props) => {
     marginTop: '5px',
   };
 
+  const gotToNext = () => {
+    setShowCat(true);
+  };
+
   useLayoutEffect(() => {
     setWidth(ref.current.offsetWidth);
   }, []);
 
   return (
     <div ref={ref}>
-      <img src={image} alt='' />
       <canvas
         ref={canvaRef}
         id='canvas'
@@ -147,6 +194,28 @@ const Canvas = (props) => {
         height='500'
         style={styleCanva}
       ></canvas>
+      <input
+        id='upload'
+        type='file'
+        accept='image/*'
+        onChange={async (e) => {
+          const [file] = e.target.files;
+
+          const image = document.createElement('img');
+          const src = await fileToDataUri(file);
+          image.src = src;
+
+          // enbaling the brush after after the image
+          // has been uploaded
+          image.addEventListener('load', () => {
+            const imageWidth = image.width;
+            const imageHeight = image.height;
+            console.log(file, imageWidth, imageHeight);
+            renderCanva(canvaRef, pencilColor, pencilSize, image);
+            setShowActions(true);
+          });
+        }}
+      />
 
       <section className='flex justify-between max-w-[400px] items-center flex-wrap md:flex-nowrap'>
         <div style={style} className='w-full'>
@@ -179,36 +248,61 @@ const Canvas = (props) => {
         </div>
       </section>
 
-      <div style={style}>
-        <button onClick={onSave} className='mr-5 btn'>
-          Save
-        </button>
-        <button onClick={onClear} className='btn btn-outline'>
-          Clear
-        </button>
-      </div>
+      {showActions === true && (
+        <div style={style}>
+          <button onClick={gotToNext} className='mr-5 btn'>
+            Save
+          </button>
+          <button onClick={onClear} className='btn btn-outline'>
+            Clear
+          </button>
+        </div>
+      )}
+
       <br />
-      <input
-        id='upload'
-        type='file'
-        accept='image/*'
-        onChange={async (e) => {
-          const [file] = e.target.files;
 
-          const image = document.createElement('img');
-          const src = await fileToDataUri(file);
-          image.src = src;
+      {showCat === true && (
+        <div>
+          <div className='flex items-center mt-5 mb-10 md:mb-0'>
+            <div>
+              <p>Type of Upload:</p>
+            </div>
 
-          // enbaling the brush after after the image
-          // has been uploaded
-          image.addEventListener('load', () => {
-            const imageWidth = image.width;
-            const imageHeight = image.height;
-            console.log(file, imageWidth, imageHeight);
-            renderCanva(canvaRef, pencilColor, pencilSize, image);
-          });
-        }}
-      />
+            <div className='flex flex-wrap justify-between ml-5 md:flex-nowrap'>
+              <label className='cursor-pointer label'>
+                <input
+                  type='radio'
+                  name='type'
+                  className='radio checked:bg-primary'
+                />
+                <span className='ml-3 label-text'>Dental</span>
+              </label>
+              <label className='cursor-pointer label'>
+                <input
+                  type='radio'
+                  name='type'
+                  className='radio checked:bg-primary'
+                />
+                <span className='ml-3 label-text'>Medical</span>
+              </label>
+              <label className='cursor-pointer label'>
+                <input
+                  type='radio'
+                  name='type'
+                  className='radio checked:bg-primary'
+                />
+                <span className='ml-3 label-text'>Vision</span>
+              </label>
+            </div>
+          </div>
+          <button
+            onClick={onSave}
+            className={`mr-5 btn ${loading === true ? 'loading' : ''}`}
+          >
+            Upload Now
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -4,9 +4,9 @@ import animation from '../../assets/animation2.webp';
 
 const Animation = () => {
   return (
-    <di className='px-7 md:px-4'>
+    <div className='px-7 md:px-4'>
       <Image src={animation} alt='' className='' />
-    </di>
+    </div>
   );
 };
 

@@ -3,9 +3,12 @@ import Image from 'next/image';
 import report from '../../assets/reports.png';
 import { BsArrowBarUp } from 'react-icons/bs';
 
-const UploadBills = () => {
+const UploadBills = ({ openModal }) => {
   return (
-    <div className='md:w-[70%] m-auto bg-[#2C438A] border-lg px-7 md:px-14 py-10 md:flex justify-between md:rounded-3xl'>
+    <div
+      onClick={openModal}
+      className='md:w-[70%] m-auto bg-[#2C438A] border-lg px-7 md:px-14 py-10 md:flex justify-between md:rounded-3xl'
+    >
       <div className='basis-2/5'>
         <span className='text-[#D9D9D9] text-xs'>
           Upload Picture of the Bill

@@ -1,6 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import ImageEditor from './index';
+import UploadBills from '../Bill/UploadBills';
+import UploadAccount from '../Bill/UploadAccount';
 
 export default function EditorModel() {
   let [isOpen, setIsOpen] = useState(false);
@@ -16,9 +18,8 @@ export default function EditorModel() {
   return (
     <>
       <div className=''>
-        <button type='button' onClick={openModal} className='btn bg-[#132758]'>
-          Upload Bill
-        </button>
+        <UploadBills openModal={openModal} />
+        <UploadAccount openModal={openModal} />
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
