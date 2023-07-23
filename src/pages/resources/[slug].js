@@ -16,6 +16,7 @@ const PaymentAssistances = () => {
     `/api/resources?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
   );
   const [resources, setResources] = useState(data?.data);
+  // console.log('resources: ', resources);
   const slug = slugify(router?.query?.slug || '', '-');
 
   useEffect(() => {

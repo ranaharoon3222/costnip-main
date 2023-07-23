@@ -12,6 +12,8 @@ const Banner = () => {
   const [inputData, setInputData] = useState('');
   const { latitude, longitude } = Location();
   const [show, setShow] = useState(false);
+  const [codeData, setCodeData] = useState("");
+
 
   const router = useRouter();
 
@@ -41,7 +43,7 @@ const Banner = () => {
       const postalCode = results.locations[0].postalCode;
 
       // console.log('results', results)
-      // console.log('Code',postalCode);
+      setCodeData(postalCode);
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -109,6 +111,7 @@ const Banner = () => {
             />
             <input
               type='text'
+              value={codeData}
               placeholder='Enter zipcode'
               className='w-full text-sm md:text-base px-10 py-3 md:py-4 mb-2 md:mb-0 border-radius1 border-radius2 text-[#616161] '
             />

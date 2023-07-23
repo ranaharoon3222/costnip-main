@@ -64,8 +64,8 @@ const PaymentAssistance = ({ slug, data, meta }) => {
                     <Image
                       src={getUrl(content.attributes.photoUrl)}
                       alt=''
-                      className='w-[100px] md:w-[250px]'
-                      width={250}
+                      className='w-[100px] md:w-[150px] md:min-w-[149px]'
+                      width={200}
                       height={250}
                     />
                   </div>

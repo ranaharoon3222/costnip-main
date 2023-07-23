@@ -42,7 +42,7 @@ const Footer = () => {
           text: 'FAQs',
         },
         {
-          link: '/patnership',
+          link: '/partnership',
           text: 'Partnerships',
         },
       ],
