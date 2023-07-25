@@ -49,7 +49,7 @@ const Patnership = () => {
 
                 <div className='flex justify-between pt-2 border-t-[1px] border-solid border-[#E0DBDB]'>
                   <Link
-                    href={`/partner/${item.id}`}
+                    href={`/partner/${item.attributes.slug}`}
                     className='flex items-center gap-3 px-6 py-3 text-sm font-medium text-darkBlue'
                   >
                     Read More <BsArrowRight />

@@ -3,6 +3,7 @@ import styles from '@/styles/styles';
 import Image from 'next/image';
 import { IoCheckboxSharp } from 'react-icons//io5';
 import gif from '../../assets/animation1.webp';
+import Link from 'next/link';
 
 const ShareCharges = () => {
   return (
@@ -39,9 +40,12 @@ const ShareCharges = () => {
           </li>
         </ul>
 
-        <button className='text-[#252B61] text-xs md:text-sm font-semibold rounded-md border-2 border-solid border-[#3F3F3F] px-5 py-3'>
+        <Link
+          href='/bill'
+          className='text-[#252B61] text-xs md:text-sm font-semibold rounded-md border-2 border-solid border-[#3F3F3F] px-5 py-3'
+        >
           Share Your Bill
-        </button>
+        </Link>
       </div>
     </div>
   );

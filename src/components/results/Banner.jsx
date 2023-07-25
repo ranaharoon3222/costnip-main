@@ -12,8 +12,7 @@ const Banner = () => {
   const [inputData, setInputData] = useState('');
   const { latitude, longitude } = Location();
   const [show, setShow] = useState(false);
-  const [codeData, setCodeData] = useState("");
-
+  const [codeData, setCodeData] = useState('');
 
   const router = useRouter();
 
@@ -61,9 +60,7 @@ const Banner = () => {
     if (!inputData) return;
     try {
       const response = await fetch(
-        `https://cnbackend.appspot.com/search?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&search=${inputData}&radius=2000&location=${Math.floor(
-          latitude
-        )},-${Math.floor(longitude)}`
+        `https://cnbackend.appspot.com/search?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&search=${inputData}&radius=20000&location=[${latitude},${longitude}]`
       );
       const data = await response.json();
 
