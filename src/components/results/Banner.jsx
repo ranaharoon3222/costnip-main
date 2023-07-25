@@ -12,8 +12,8 @@ const Banner = () => {
   const [inputData, setInputData] = useState('');
   const { latitude, longitude } = Location();
   const [show, setShow] = useState(false);
-  const [codeData, setCodeData] = useState('');
 
+  const [ipData, setIpData] = useState({});
   const router = useRouter();
 
   useEffect(() => {
@@ -33,20 +33,6 @@ const Banner = () => {
 
   // console.log(latitude, longitude);
   // console.log(API_KEY)
-
-  const url = `http://www.mapquestapi.com/geocoding/v1/reverse?key=${API_KEY}&location=${latitude},${longitude}`;
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      const results = data.results[0];
-      const postalCode = results.locations[0].postalCode;
-
-      // console.log('results', results)
-      setCodeData(postalCode);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
 
   ///////////////////////GETZIPCODE////////////////////////////
 
@@ -78,6 +64,21 @@ const Banner = () => {
     setShow(false);
   };
 
+  async function getUserLocation() {
+    const response = await fetch(
+      'https://api.ipgeolocation.io/ipgeo?apiKey=0b70f161386c4a428e8c735c6dc6456c'
+    );
+
+    const data = await response.json();
+    console.log(data, 'rs');
+
+    setIpData(data);
+  }
+
+  useEffect(() => {
+    getUserLocation();
+  }, []);
+
   return (
     <div
       className={`${styles.width} md:py-12 py-6 px-7 md:px-0 bg-darkBlue md:rounded-[20px]`}
@@ -108,7 +109,7 @@ const Banner = () => {
             />
             <input
               type='text'
-              value={codeData}
+              value={ipData.zipcode}
               placeholder='Enter zipcode'
               className='w-full text-sm md:text-base px-10 py-3 md:py-4 mb-2 md:mb-0 border-radius1 border-radius2 text-[#616161] '
             />
