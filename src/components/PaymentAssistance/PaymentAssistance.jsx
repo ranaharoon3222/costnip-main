@@ -91,7 +91,7 @@ const PaymentAssistance = ({ slug, data, meta }) => {
             ))}
           </div>
           <div className='mt-[-25px] md:mt-0 pb-10 md:pb-0'>
-            <PaginationButtons meta={meta} />
+            {/* <PaginationButtons meta={meta} /> */}
           </div>
         </div>
       </div>
