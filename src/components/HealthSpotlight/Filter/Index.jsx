@@ -74,9 +74,7 @@ const Index = () => {
         <FilterResults resources={resources} />
 
         <div className='hidden md:block absolute top-[52%] right-[-10%]'>
-          <Link href='/' className={styles.viewLink}>
-            VIEW ALL <BsArrowRight />
-          </Link>
+          
         </div>
       </div>
     </div>

@@ -104,6 +104,7 @@ const HealthTopics = () => {
       {data?.data?.map((featured) => {
         return (
           <div key={featured.id}>
+            
             <div className='w-4/5 m-auto mt-5 mb-20 '>
               <FilterType type={featured.attributes.title} />
               <div className='relative'>
