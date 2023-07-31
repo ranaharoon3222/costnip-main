@@ -2,7 +2,6 @@ import React from 'react';
 import FilterType from './Filter/FilterType';
 import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs';
-import styles from '@/styles/styles';
 import Loading from '../loding';
 import { useFetcher } from '@/helpers/fetch';
 import { useMedia } from '@/helpers/useMedia';
@@ -108,7 +107,7 @@ const HealthTopics = () => {
             <div className='w-4/5 m-auto mt-5 mb-20 '>
               <FilterType type={featured.attributes.title} />
               <div className='relative'>
-                {/* ......////////////////////// */}
+               
                 
                   
                 <Slider {...settings}>
@@ -145,7 +144,7 @@ const HealthTopics = () => {
 
                               <div className='flex justify-between pt-2 border-t-[1px] border-solid border-[#E0DBDB]'>
                                 <Link
-                                  // onClick={() => umr_handleBlog(featured.id)}
+                                  
                                   href={`/blogs/${ele.attributes.slug}`}
                                   className='flex items-center gap-3 text-sm font-medium text-darkBlue'
                                 >
@@ -163,7 +162,7 @@ const HealthTopics = () => {
                     </Slider> 
                   
                 
-                {/* ......////////////////////// */}
+              
                 <div className=' md:block absolute top-[52%] right-[-9%]'>
                   
                 </div>
