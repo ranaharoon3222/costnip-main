@@ -75,8 +75,10 @@ const Featured = ({ resources }) => {
     prevArrow: <SamplePrevArrow />,
   };
 
-  const umr_handleBlog = (id) => {
-    // console.log(id);
+  const getDates = (date) => {
+    const newDate = new Date(date);
+    const formatedDate = new Intl.DateTimeFormat('en-US').format(newDate);
+    return formatedDate;
   };
 
   return (
@@ -116,7 +118,7 @@ const Featured = ({ resources }) => {
                     Read More <BsArrowRight />
                   </Link>
                   <span className='text-[#817D7D] text-xs'>
-                    {featured.attributes.updatedAt}
+                    {getDates(featured.attributes.updatedAt)}
                   </span>
                 </div>
               </Link>
