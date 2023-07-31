@@ -32,7 +32,7 @@ const Blog = () => {
   const disqusConfig = {
     url: location.href,
     identifier: blogid, // Single post id
-    title: data.data[0].attributes.title, // Single post title
+    title: data?.data[0]?.attributes?.title, // Single post title
   };
   ////////disqus/////////////////////////
 

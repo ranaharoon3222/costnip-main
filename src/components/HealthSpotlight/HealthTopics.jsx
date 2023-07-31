@@ -93,6 +93,11 @@ const HealthTopics = () => {
     prevArrow: <SamplePrevArrow />,
   };
 
+  const getDates = (date) => {
+    const newDate = new Date(date);
+    const formatedDate = new Intl.DateTimeFormat('en-US').format(newDate);
+    return formatedDate;
+  };
 
   return (
     <>
@@ -146,7 +151,7 @@ const HealthTopics = () => {
                                   Read More <BsArrowRight />
                                 </Link>
                                 <span className='text-[#817D7D] text-xs'>
-                                  {featured.attributes.updatedAt}
+                                {getDates(featured.attributes.updatedAt)}
                                 </span>
                               </div>
                             </div>
@@ -159,9 +164,7 @@ const HealthTopics = () => {
                 
                 {/* ......////////////////////// */}
                 <div className=' md:block absolute top-[52%] right-[-9%]'>
-                  <Link href='/' className={styles.viewLink}>
-                    VIEW ALL <BsArrowRight />
-                  </Link>
+                  
                 </div>
               </div>
             </div>

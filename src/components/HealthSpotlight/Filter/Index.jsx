@@ -33,16 +33,7 @@ const Index = () => {
     ),
   ];
 
-  // const handleFilter = (name) => {
-  //   if (name === 'all') {
-  //     setResources(data.data);
-  //   } else {
-  //     const filteredResource = data.data.filter(
-  //       (item) => item.attributes.blog_section.data.attributes.title === name
-  //     );
-  //     setResources(filteredResource);
-  //   }
-  // };
+
 
   return (
     <div className={`${styles.padding} md:w-3/4 m-auto py-10`}>
