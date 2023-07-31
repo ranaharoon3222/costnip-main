@@ -27,16 +27,6 @@ const Canvas = (props) => {
 
   // Button handlers
 
-  const colors = [
-    'black',
-    'white',
-    'red',
-    'green',
-    'blue',
-    'yellow',
-    '#ffff83',
-  ];
-
   function fileToDataUri(field) {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -167,6 +157,7 @@ const Canvas = (props) => {
     const img = canvasElement.toDataURL('image/png');
     await handleFileUpload(img);
     setImage(img);
+    console.log(img);
   };
 
   // Syles
