@@ -157,7 +157,6 @@ const Canvas = (props) => {
     const img = canvasElement.toDataURL('image/png');
     await handleFileUpload(img);
     setImage(img);
-    console.log(img);
   };
 
   // Syles
@@ -195,6 +194,7 @@ const Canvas = (props) => {
           const image = document.createElement('img');
           const src = await fileToDataUri(file);
           image.src = src;
+          console.log(src, 'img');
 
           // enbaling the brush after after the image
           // has been uploaded
