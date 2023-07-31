@@ -27,16 +27,6 @@ const Canvas = (props) => {
 
   // Button handlers
 
-  const colors = [
-    'black',
-    'white',
-    'red',
-    'green',
-    'blue',
-    'yellow',
-    '#ffff83',
-  ];
-
   function fileToDataUri(field) {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -204,6 +194,7 @@ const Canvas = (props) => {
           const image = document.createElement('img');
           const src = await fileToDataUri(file);
           image.src = src;
+          console.log(src, 'img');
 
           // enbaling the brush after after the image
           // has been uploaded
