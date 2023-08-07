@@ -14,9 +14,13 @@ const Hero = () => {
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
   const { latitude, longitude } = Location();
+  console.log('longitude: ', longitude);
+  console.log('latitude: ', latitude);
   const [ipData, setIpData] = useState({});
 
   const router = useRouter();
+
+
 
   useEffect(() => {
     fetchData();
@@ -40,12 +44,9 @@ const Hero = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `https://cnbackend.appspot.com/search?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&search=${inputData}&radius=2000&location=${Math.floor(
-          latitude
-        )},-${Math.floor(longitude)}`
+        `https://cnbackend.appspot.com/search?key=AIzaSyCK-zbsEAEkwSHSBMG6qJG9S121VAH_ArU&search=${inputData}&radius=20000&location=[${latitude},${longitude}]`
       );
       const data = await response.json();
-
       setData(data);
 
       saveResult(data);
